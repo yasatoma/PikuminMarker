@@ -15,6 +15,7 @@ using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.Command;
 using Dalamud.Game.Gui;
 using Dalamud.Logging;
+using Dalamud.Plugin.Services;
 
 using PikuminMarker.Service;
 
@@ -24,8 +25,8 @@ namespace PikuminMarker
     {
 
         private readonly Plugin plugin;
-        private readonly ClientState _cs;
-        private readonly GameGui _gui;
+        private readonly IClientState _cs;
+        private readonly IGameGui _gui;
 
         public MakerDraw(Plugin plugin)
         {
@@ -56,8 +57,8 @@ namespace PikuminMarker
                         out var pos)) return;
 
                     ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, new Vector2(0, 0));
-                    ImGuiHelpers.ForceNextWindowMainViewport();
-                    ImGuiHelpers.SetNextWindowPosRelativeMainViewport(new Vector2(0, 0));
+                    //ImGuiHelpers.ForceNextWindowMainViewport();
+                    //ImGuiHelpers.SetNextWindowPosRelativeMainViewport(new Vector2(0, 0));
 
                     ImGui.Begin("Marker1",
                         ImGuiWindowFlags.NoInputs | ImGuiWindowFlags.NoNav | ImGuiWindowFlags.NoTitleBar |
@@ -92,8 +93,8 @@ namespace PikuminMarker
                         out var pos)) return;
 
                     ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, new Vector2(0, 0));
-                    ImGuiHelpers.ForceNextWindowMainViewport();
-                    ImGuiHelpers.SetNextWindowPosRelativeMainViewport(new Vector2(0, 0));
+                    //ImGuiHelpers.ForceNextWindowMainViewport();
+                    //ImGuiHelpers.SetNextWindowPosRelativeMainViewport(new Vector2(0, 0));
 
                     ImGui.Begin("Marker2",
                         ImGuiWindowFlags.NoInputs | ImGuiWindowFlags.NoNav | ImGuiWindowFlags.NoTitleBar |
@@ -128,8 +129,8 @@ namespace PikuminMarker
                         out var pos)) return;
 
                     ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, new Vector2(0, 0));
-                    ImGuiHelpers.ForceNextWindowMainViewport();
-                    ImGuiHelpers.SetNextWindowPosRelativeMainViewport(new Vector2(0, 0));
+                    //ImGuiHelpers.ForceNextWindowMainViewport();
+                    //ImGuiHelpers.SetNextWindowPosRelativeMainViewport(new Vector2(0, 0));
 
                     ImGui.Begin("Marker3",
                         ImGuiWindowFlags.NoInputs | ImGuiWindowFlags.NoNav | ImGuiWindowFlags.NoTitleBar |
