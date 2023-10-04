@@ -42,7 +42,6 @@ namespace PikuminMarker
             // Main Process
             if (!this.plugin.Configuration.Enabled) return;
 
-            // Sumomo Alamode 1FEFEA27270: 102B9E5C(271294044)
             if (this.plugin.Configuration.Target1ObjectID != null)
             {
 
