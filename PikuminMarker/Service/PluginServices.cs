@@ -16,14 +16,15 @@ namespace PikuminMarker.Service
         [PluginService] public static IChatGui ChatGui { get; set; } = null!;
         [PluginService] public static IClientState ClientState { get; set; } = null!;
         [PluginService] public static ICommandManager CommandManager { get; set; } = null!;
-        [PluginService] public static DalamudPluginInterface DalamudPluginInterface { get; set; } = null!;
+        [PluginService] public static IDalamudPluginInterface DalamudPluginInterface { get; set; } = null!;
         [PluginService] public static IDataManager DataManager { get; set; } = null!;
         [PluginService] public static IFramework Framework { get; set; } = null!;
         [PluginService] public static IGameGui GameGui { get; set; } = null!;
         [PluginService] public static IObjectTable ObjectTable { get; set; } = null!;
         [PluginService] public static IPartyList PartyList { get; set; } = null!;
+        [PluginService] public static IPluginLog PluginLog { get; set; } = null!;
 
-        public static void Initialize(DalamudPluginInterface pluginInterface)
+        public static void Initialize(IDalamudPluginInterface pluginInterface)
         {
             pluginInterface.Create<PluginServices>();
         }

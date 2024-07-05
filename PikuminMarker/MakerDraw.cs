@@ -47,7 +47,7 @@ namespace PikuminMarker
 
                 var obj = PluginServices.ObjectTable.SearchById(((uint)this.plugin.Configuration.Target1ObjectID));
 
-                if (obj != null && obj is PlayerCharacter actor)
+                if (obj != null && obj is IPlayerCharacter actor)
                 {
 
                     // Target Player 1 にマーカー
@@ -83,7 +83,7 @@ namespace PikuminMarker
 
                 var obj = PluginServices.ObjectTable.SearchById(((uint)this.plugin.Configuration.Target2ObjectID));
 
-                if (obj != null && obj is PlayerCharacter actor)
+                if (obj != null && obj is IPlayerCharacter actor)
                 {
 
                     // Target Player 2 にマーカー
@@ -119,7 +119,7 @@ namespace PikuminMarker
 
                 var obj = PluginServices.ObjectTable.SearchById(((uint)this.plugin.Configuration.Target3ObjectID));
 
-                if (obj != null && obj is PlayerCharacter actor)
+                if (obj != null && obj is IPlayerCharacter actor)
                 {
 
                     // Target Player 3 にマーカー

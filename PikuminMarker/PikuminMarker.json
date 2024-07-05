@@ -3,8 +3,8 @@
   "Name": "PikuminMarker",
   "Punchline": "PikuminMarker.",
   "Description": ".",
-  "InternalName": "NameplateColor",
-  "ApplicableVersion": "2023.10.04.0000.0000",
+  "InternalName": "PikuminMarker",
+  "ApplicableVersion": "2024.07.05.0000.0000",
   "Tags": [
     "marker",
     "colors"

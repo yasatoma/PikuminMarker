@@ -43,7 +43,7 @@ namespace PikuminMarker.Config
             }
             catch (Exception ex)
             {
-                PluginLog.Error(ex, $"{this.plugin.Name}: Failed to Draw.");
+                PluginServices.PluginLog.Error(ex, $"{this.plugin.Name}: Failed to Draw.");
             }
 
         }
@@ -81,12 +81,12 @@ namespace PikuminMarker.Config
 
                 ImGui.Text("Target:");
 
-                PlayerCharacter? target = null;
-                if (PluginServices.ClientState.LocalPlayer!.TargetObject != null && PluginServices.ClientState.LocalPlayer.TargetObject is PlayerCharacter)
+                IPlayerCharacter? target = null;
+                if (PluginServices.ClientState.LocalPlayer!.TargetObject != null && PluginServices.ClientState.LocalPlayer.TargetObject is IPlayerCharacter)
                 {
                     ImGui.SameLine();
-                    target = (PlayerCharacter)PluginServices.ClientState.LocalPlayer.TargetObject;
-                    ImGui.TextColored(ImGuiColors.DalamudOrange, $"{target.ObjectId}:{target.Name}");
+                    target = (IPlayerCharacter)PluginServices.ClientState.LocalPlayer.TargetObject;
+                    ImGui.TextColored(ImGuiColors.DalamudOrange, $"{target.EntityId}:{target.Name}");
                 }
 
                 ImGui.Spacing();
@@ -124,7 +124,7 @@ namespace PikuminMarker.Config
                 {
                     if (ImGui.Button("Target" + "###Upd_Target1"))
                     {
-                        configuration.Target1ObjectID = target.ObjectId;
+                        configuration.Target1ObjectID = target.EntityId;
                         configuration.Save();
                     }
                     ImGui.SameLine();
@@ -169,7 +169,7 @@ namespace PikuminMarker.Config
                 {
                     if (ImGui.Button("Target" + "###Upd_Target2"))
                     {
-                        configuration.Target2ObjectID = target.ObjectId;
+                        configuration.Target2ObjectID = target.EntityId;
                         configuration.Save();
                     }
                     ImGui.SameLine();
@@ -214,7 +214,7 @@ namespace PikuminMarker.Config
                 {
                     if (ImGui.Button("Target" + "###Upd_Target3"))
                     {
-                        configuration.Target3ObjectID = target.ObjectId;
+                        configuration.Target3ObjectID = target.EntityId;
                         configuration.Save();
                     }
                     ImGui.SameLine();

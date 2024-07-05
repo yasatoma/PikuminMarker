@@ -11,6 +11,7 @@ using PikuminMarker.Config;
 using PikuminMarker.Service;
 using FFXIVClientStructs.FFXIV.Client.System.Framework;
 using FFXIVClientStructs.FFXIV.Client.Game.Object;
+using Dalamud.Plugin.Services;
 
 namespace PikuminMarker
 {
@@ -29,11 +30,12 @@ namespace PikuminMarker
 
 
         public Plugin(
-            [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface
+            IDalamudPluginInterface pluginInterface
             )
         {
-            PluginLog.LogDebug(string.Format("{0} ver {1} : Start. ", Name, Assembly.GetExecutingAssembly().GetName().Version));
+
             PluginServices.Initialize(pluginInterface);
+            PluginServices.PluginLog.Debug(string.Format("{0} ver {1} : Start. ", Name, Assembly.GetExecutingAssembly().GetName().Version));
 
             PluginServices.CommandManager.AddHandler(
                 commandName, new CommandInfo(OnCommand)
@@ -82,11 +84,11 @@ namespace PikuminMarker
 
                 PluginServices.CommandManager.RemoveHandler(commandName);
 
-                PluginLog.LogDebug($"{Name}: Dispose.");
+                PluginServices.PluginLog.Debug($"{Name}: Dispose.");
             }
             catch (Exception ex)
             {
-                PluginLog.Error(ex, $"{Name}: Failed to Dispose plugin.");
+                PluginServices.PluginLog.Error(ex, $"{Name}: Failed to Dispose plugin.");
             }
         }
 
@@ -106,7 +108,7 @@ namespace PikuminMarker
                     return;
                 }
 
-                var resolve = Framework.Instance()->GetUiModule()->GetPronounModule()->ResolvePlaceholder(args, 0, 0);
+                var resolve = Framework.Instance()->GetUIModule()->GetPronounModule()->ResolvePlaceholder(args, 0, 0);
                 if (resolve == null)
                 {
                     foreach (var actor in PluginServices.ObjectTable)
@@ -119,18 +121,18 @@ namespace PikuminMarker
                         }
                     }
                 }
-                if (resolve != null && resolve->ObjectKind == 1 && resolve->SubKind == 4)
+                if (resolve != null && resolve->ObjectKind == ObjectKind.Pc && resolve->SubKind == 4)
                 {
                     switch (command)
                     {
                         case commandName1:
-                            this.Configuration.Target1ObjectID = resolve->ObjectID;
+                            this.Configuration.Target1ObjectID = resolve->EntityId;
                             break;
                         case commandName2:
-                            this.Configuration.Target2ObjectID = resolve->ObjectID;
+                            this.Configuration.Target2ObjectID = resolve->EntityId;
                             break;
                         case commandName3:
-                            this.Configuration.Target3ObjectID = resolve->ObjectID;
+                            this.Configuration.Target3ObjectID = resolve->EntityId;
                             break;
                     }
                 }
