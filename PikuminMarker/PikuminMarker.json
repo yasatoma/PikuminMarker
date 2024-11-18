@@ -2,9 +2,9 @@
   "Author": "yasatoma",
   "Name": "PikuminMarker",
   "Punchline": "PikuminMarker.",
-  "Description": ".",
+  "Description": "Puts a marker on the specified player. If the target player travels to DC, the internal ID will change and the marker will be invalid.",
   "InternalName": "PikuminMarker",
-  "ApplicableVersion": "2024.07.05.0000.0000",
+  "ApplicableVersion": "2024.11.18.0000.0000",
   "Tags": [
     "marker",
     "colors"
